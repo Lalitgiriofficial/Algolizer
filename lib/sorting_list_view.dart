@@ -134,7 +134,7 @@ class _sort_listState extends State<sort_list> {
                   padding: const EdgeInsets.all(12.0),
                   child: InkWell(
                     child: neulistcard("assets/green/radix.png", "Radix Sort",
-                        "D*N+B", "D*N+B", "N+B"),
+                        "D*(N+B)", "D*(N+B)", "N+B"),
                     onTap: () {
                       Navigator.push(
                           context,
