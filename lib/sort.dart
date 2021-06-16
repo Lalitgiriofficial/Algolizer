@@ -417,7 +417,72 @@ class sortState extends State<sort> {
 
   }
 
+ Future<void> cocktailsort(List<int> a)async{
+   bool swapped = true;
+   int start = 0;
+   int end = _numbers.length - 1;
 
+   while (swapped)
+   {
+     swapped = false;
+     for (int i = start; i < end; ++i)
+     {
+       if (a[i] > a[i + 1]) {
+         int temp=a[i];
+         a[i]=a[i+1];
+         a[i+1]=temp;
+         swapped = true;
+       }
+       await Future.delayed(Duration(microseconds: 0));
+       streamcontroller.add(a);
+     }
+     if (!swapped)
+       break;
+     swapped = false;
+     --end;
+     for (int i = end - 1; i >= start; --i)
+     {
+       if (a[i] > a[i + 1]) {
+         int temp=a[i];
+         a[i]=a[i+1];
+         a[i+1]=temp;
+         swapped = true;
+       }
+       await Future.delayed(Duration(microseconds: 0));
+       streamcontroller.add(a);
+     }
+     ++start;
+   }
+
+
+ }
+ Future<void> oddEvenSort(List<int> arr)async{
+    bool flag=false;
+    int n=_numbers.length;
+    while(!flag){
+      flag=true;
+      for(int i=1;i<=n-2;i+=2){
+         if(arr[i]>arr[i+1]){
+           int temp=arr[i];
+           arr[i]=arr[i+1];
+           arr[i+1]=temp;
+           flag=false;
+           await Future.delayed(Duration(microseconds: 0));
+           streamcontroller.add(arr);
+         }
+      }
+      for(int i=0;i<=n-2;i+=2){
+        if(arr[i]>arr[i+1]){
+          int temp=arr[i];
+          arr[i]=arr[i+1];
+          arr[i+1]=temp;
+          flag=false;
+        }
+        await Future.delayed(Duration(microseconds: 0));
+        streamcontroller.add(arr);
+      }
+    }
+ }
   sorting() async {
     setState(() {
       issorting = true;
@@ -446,6 +511,12 @@ class sortState extends State<sort> {
         maximum=max(maximum,_numbers[i]);
       }
       radixSort(_numbers,maximum);
+    }
+    else if(widget.algo_name=="Cocktail Sort"){
+      cocktailsort(_numbers);
+    }
+    else if(widget.algo_name=="Odd Even Sort"){
+      oddEvenSort(_numbers);
     }
     setState(() {
       issorting = false;

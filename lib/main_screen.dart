@@ -86,33 +86,37 @@ class _main_screenState extends State<main_screen> {
                       Padding(
                         padding: const EdgeInsets.all(12.0),
                         child: InkWell(
-                          child:
-                              neucard("assets/green/bubble.png", "Bubble Sort"),
+                          child: neucard("assets/green/cocktail.png", "Cocktail Sort"),
                           onTap: () {
                             Navigator.push(
                                 context,
-                                CupertinoPageRoute(
-                                    builder: (context) => sort(
-                                          algo_name: "Bubble Sort",
-                                        )));
+                                CupertinoPageRoute(builder: (context)=>sort(algo_name: "Cocktail Sort",)));
                           },
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.all(12.0),
                         child: InkWell(
-                          child:
-                              neucard("assets/green/tap.png", "Selection Sort"),
+                          child: neucard("assets/green/oddeven.png", "Odd Even Sort"),
                           onTap: () {
                             Navigator.push(
                                 context,
-                                CupertinoPageRoute(
-                                    builder: (context) => sort(
-                                          algo_name: "Selection Sort",
-                                        )));
+                                CupertinoPageRoute(builder: (context)=>sort(algo_name: "Odd Even Sort",)));
                           },
                         ),
                       ),
+                      Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: InkWell(
+                          child: neucard("assets/green/shell.png", "Shell Sort"),
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                CupertinoPageRoute(builder: (context)=>sort(algo_name: "Shell Sort",)));
+                          },
+                        ),
+                      ),
+
                       Padding(
                         padding: const EdgeInsets.all(12.0),
                         child: InkWell(
@@ -173,22 +177,42 @@ class _main_screenState extends State<main_screen> {
                       Padding(
                         padding: const EdgeInsets.all(12.0),
                         child: InkWell(
-                          child: neucard("assets/green/shell.png", "Shell Sort"),
+                          child: neucard("assets/green/radix.png", "Radix Sort"),
                           onTap: () {
                             Navigator.push(
                                 context,
-                               CupertinoPageRoute(builder: (context)=>sort(algo_name: "Shell Sort",)));
+                                CupertinoPageRoute(builder: (context)=>sort(algo_name: "Radix Sort",)));
                           },
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.all(12.0),
                         child: InkWell(
-                          child: neucard("assets/green/radix.png", "Radix Sort"),
+                          child:
+                          neucard("assets/green/tap.png", "Selection Sort"),
                           onTap: () {
                             Navigator.push(
                                 context,
-                                CupertinoPageRoute(builder: (context)=>sort(algo_name: "Radix Sort",)));
+                                CupertinoPageRoute(
+                                    builder: (context) => sort(
+                                      algo_name: "Selection Sort",
+                                    )));
+                          },
+                        ),
+                      ),
+
+                      Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: InkWell(
+                          child:
+                          neucard("assets/green/bubbles.png", "Bubble Sort"),
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                CupertinoPageRoute(
+                                    builder: (context) => sort(
+                                      algo_name: "Bubble Sort",
+                                    )));
                           },
                         ),
                       ),

@@ -26,35 +26,51 @@ class _sort_listState extends State<sort_list> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: EdgeInsets.all(12.0),
+                  padding: const EdgeInsets.all(12.0),
                   child: InkWell(
-                    child: neulistcard("assets/green/bubble.png", "Bubble Sort",
+                    child: neulistcard("assets/green/cocktail.png", "Cocktail Sort",
                         "N^2", "N^2", "N"),
                     onTap: () {
                       Navigator.push(
                           context,
                           CupertinoPageRoute(
                               builder: (context) => sort(
-                                    algo_name: "Bubble Sort",
-                                  )));
+                                algo_name: "Cocktail Sort",
+                              )));
                     },
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(12.0),
                   child: InkWell(
-                    child: neulistcard("assets/green/tap.png", "Selection Sort",
-                        "N^2", "N^2", "N^2"),
+                    child: neulistcard("assets/green/oddeven.png", "Odd Even Sort",
+                        "N^2", "N^2", "N"),
                     onTap: () {
                       Navigator.push(
                           context,
                           CupertinoPageRoute(
                               builder: (context) => sort(
-                                    algo_name: "Selection Sort",
-                                  )));
+                                algo_name: "Odd Even Sort",
+                              )));
                     },
                   ),
                 ),
+                Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: InkWell(
+                    child: neulistcard("assets/green/shell.png", "Shell Sort",
+                        "Depends on gap ", "N*log(N)^2 or N^(3/2)", "N"),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          CupertinoPageRoute(
+                              builder: (context) => sort(
+                                algo_name: "Shell Sort",
+                              )));
+                    },
+                  ),
+                ),
+
                 Padding(
                   padding: const EdgeInsets.all(12.0),
                   child: InkWell(
@@ -118,21 +134,6 @@ class _sort_listState extends State<sort_list> {
                 Padding(
                   padding: const EdgeInsets.all(12.0),
                   child: InkWell(
-                    child: neulistcard("assets/green/shell.png", "Shell Sort",
-                        "Depends on gap ", "N*log(N)^2 or N^(3/2)", "N"),
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          CupertinoPageRoute(
-                              builder: (context) => sort(
-                                    algo_name: "Shell Sort",
-                                  )));
-                    },
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: InkWell(
                     child: neulistcard("assets/green/radix.png", "Radix Sort",
                         "D*(N+B)", "D*(N+B)", "N+B"),
                     onTap: () {
@@ -145,6 +146,38 @@ class _sort_listState extends State<sort_list> {
                     },
                   ),
                 ),
+                Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: InkWell(
+                    child: neulistcard("assets/green/tap.png", "Selection Sort",
+                        "N^2", "N^2", "N^2"),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          CupertinoPageRoute(
+                              builder: (context) => sort(
+                                algo_name: "Selection Sort",
+                              )));
+                    },
+                  ),
+                ),
+
+                Padding(
+                  padding: EdgeInsets.all(12.0),
+                  child: InkWell(
+                    child: neulistcard("assets/green/bubbles.png", "Bubble Sort",
+                        "N^2", "N^2", "N"),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          CupertinoPageRoute(
+                              builder: (context) => sort(
+                                algo_name: "Bubble Sort",
+                              )));
+                    },
+                  ),
+                ),
+
               ],
             ),
           ),
