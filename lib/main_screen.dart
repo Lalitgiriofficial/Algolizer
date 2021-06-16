@@ -181,6 +181,17 @@ class _main_screenState extends State<main_screen> {
                           },
                         ),
                       ),
+                      Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: InkWell(
+                          child: neucard("assets/green/radix.png", "Radix Sort"),
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                CupertinoPageRoute(builder: (context)=>sort(algo_name: "Radix Sort",)));
+                          },
+                        ),
+                      ),
                     ],
                   ),
                 ),

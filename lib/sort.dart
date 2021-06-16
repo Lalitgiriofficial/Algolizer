@@ -388,8 +388,35 @@ class sortState extends State<sort> {
     }
     streamcontroller.add(_numbers);
   }
+  Future<void> countSort(List<int> arr, int n, int exp) async
+  {
+  List<int> output=new List.filled(n, 0);List<int> count=new List.filled(10, 0); // output array
+  int i;
+  for (i = 0; i < n; i++)
+  count[(arr[i]~/ exp) % 10]++;
+  for (i = 1; i < 10; i++)
+  count[i] += count[i - 1];
+  for (i = n - 1; i >= 0; i--) {
+  output[count[(arr[i]~/ exp) % 10] - 1] = arr[i];
+  count[(arr[i]~/ exp) % 10]--;
+  }
+  for (i = 0; i < n; i++){
+    arr[i] = output[i];
+    await Future.delayed(Duration(microseconds: 1500));
+    streamcontroller.add(_numbers);
+  }
 
-  // ignore: non_constant_identifier_names
+  }
+  Future<void> radixSort(List<int> arr, int m)async
+  {
+  for (int exp = 1; m/ exp > 0; exp *= 10){
+    await countSort(arr, _numbers.length, exp);
+    await Future.delayed(Duration(milliseconds: 100));
+    streamcontroller.add(_numbers);
+  }
+
+  }
+
 
   sorting() async {
     setState(() {
@@ -412,6 +439,13 @@ class sortState extends State<sort> {
       mergesort(_numbers, 0, _samplesize - 1);
     } else if (widget.algo_name == "Shell Sort") {
       shell_sort(_numbers, _numbers.length);
+    }
+    else if(widget.algo_name=="Radix Sort"){
+      int maximum=0;
+      for(int i=0;i<_numbers.length;i++){
+        maximum=max(maximum,_numbers[i]);
+      }
+      radixSort(_numbers,maximum);
     }
     setState(() {
       issorting = false;

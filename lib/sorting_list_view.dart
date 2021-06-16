@@ -130,6 +130,21 @@ class _sort_listState extends State<sort_list> {
                     },
                   ),
                 ),
+                Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: InkWell(
+                    child: neulistcard("assets/green/radix.png", "Radix Sort",
+                        "D*N+B", "D*N+B", "N+B"),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          CupertinoPageRoute(
+                              builder: (context) => sort(
+                                algo_name: "Radix Sort",
+                              )));
+                    },
+                  ),
+                ),
               ],
             ),
           ),
